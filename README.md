@@ -1,35 +1,34 @@
 # request-forms
 
-Internal request forms. Plain HTML, no build step, no dependencies, no data leaves the browser.
+Internal Kismet request forms. Plain HTML, no build step, no dependencies. Nothing is submitted anywhere — everything runs in the browser until the person presses a button.
 
 ## Live
 
-`https://<your-github-username>.github.io/request-forms/`
+**https://ints-haq.github.io/request-forms/**
 
-Set to `noindex` and blocked in `robots.txt`, so it will not turn up in search. It is still reachable by anyone who has the link, so share the link rather than publishing it.
-
-## What is here
-
-| File | What it is |
+| Path | Form |
 |---|---|
-| `index.html` | Kismet discount code request form. Fills in, then emails, copies or downloads a markdown request. |
-| `robots.txt` | Keeps search engines out. |
+| `/` | Hub. Lists the forms. Share this link, not the individual ones. |
+| `/discount/` | Discount code request |
+| `/monoku/` | Monoku initiative / ticket form |
 
-## Turning on GitHub Pages
+Every page is `noindex` and the whole site is blocked in `robots.txt`, so none of it turns up in search. It is still reachable by anyone with the link, so share the link rather than publishing it.
 
-Settings → Pages → Source: **Deploy from a branch** → Branch: **main**, folder: **/ (root)** → Save. Live in about a minute.
+## Adding another form
 
-## Editing the form
+Drop `yourform/index.html` in, then add a card to the root `index.html` copying one of the two already there. Nothing else to wire up.
 
-Everything is in `index.html`. Two things you are most likely to change:
+## Editing
 
-**1. Where the email goes.** Near the top of the `<script>` block:
+Open the file on GitHub, click the pencil, commit. The live page updates in about a minute.
+
+### Discount form: the two things you are most likely to change
+
+Near the top of the `<script>` block in `discount/index.html`:
 
 ```js
-var SEND_TO = "Intshaquani@me.com";
+var SEND_TO = "Intshaquani@me.com";     // where the email button addresses to
 ```
-
-**2. The platform numbers.** Just below that:
 
 ```js
 var FREE_SHIP_THRESHOLD = 50;   // dollars, applied AFTER the discount
@@ -38,6 +37,4 @@ var SUB_RECURRING = 40.49;      // 9lb bag recurring price
 var SUB_FIRST = 31.49;          // 9lb bag first-order price before any code
 ```
 
-All four were verified in live Shopify checkout on 15 August 2026. The form uses them to work out the real subscriber discount and the free shipping dead band, and writes both into the request. **If Kismet's pricing or free shipping threshold changes, update these or the form starts giving confident wrong answers.**
-
-To edit: open the file on GitHub, click the pencil, change the line, commit. The live page updates in about a minute.
+All four verified in live Shopify checkout on 15 August 2026. The form uses them to work out the real subscriber discount and the free shipping dead band, and writes both into the request. **If Kismet's pricing or free shipping threshold changes, update these or the form starts giving confident wrong answers.**

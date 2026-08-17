@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Kismet x Monoku — Initiative Form</title>
+<style>
+  :root{
+    --ink:#1c1c1a; --mid:#5f5f5a; --hint:#8b8b84; --line:#e3e1dc;
+    --bg:#faf9f7; --card:#ffffff; --accent:#2f6f4e; --accent-soft:#eef4f0;
+    --warn:#8a5a1c; --warn-soft:#fbf3e6;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:15px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:820px;margin:0 auto;padding:48px 24px 120px}
+
+  header.top{margin-bottom:40px}
+  h1{font-size:27px;letter-spacing:-.02em;margin:0 0 6px}
+  .sub{color:var(--hint);font-size:13.5px;margin:0}
+  .lede{
+    margin-top:22px;padding:16px 18px;background:var(--accent-soft);
+    border-radius:10px;font-size:14px;color:#31453a;line-height:1.55;
+  }
+
+  section.card{
+    background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:28px 30px 24px;margin-bottom:22px;
+  }
+  .sechead{display:flex;align-items:baseline;gap:10px;margin:0 0 4px}
+  .num{
+    font-size:11px;font-weight:700;letter-spacing:.09em;color:var(--accent);
+    background:var(--accent-soft);border-radius:5px;padding:3px 7px;
+  }
+  h2{font-size:17px;margin:0;letter-spacing:-.01em}
+  .secnote{color:var(--hint);font-size:13px;margin:2px 0 22px}
+
+  .field{margin-bottom:26px}
+  .field:last-child{margin-bottom:6px}
+  label{display:block;font-weight:600;font-size:14px;margin-bottom:3px}
+  .help{display:block;color:var(--hint);font-size:12.5px;line-height:1.5;margin-bottom:9px}
+
+  input[type=text],input[type=date],textarea,select{
+    width:100%;font:inherit;font-size:14.5px;color:var(--ink);
+    background:#fff;border:1px solid var(--line);border-radius:8px;
+    padding:10px 12px;transition:border-color .12s, box-shadow .12s;
+  }
+  textarea{resize:vertical;min-height:74px;line-height:1.6}
+  select{
+    appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8'><path d='M1 1l5 5 5-5' fill='none' stroke='%235f5f5a' stroke-width='1.6' stroke-linecap='round'/></svg>");
+    background-repeat:no-repeat;background-position:right 12px center;padding-right:34px;cursor:pointer;
+  }
+  input:focus,textarea:focus,select:focus{
+    outline:none;border-color:var(--accent);box-shadow:0 0 0 3px rgba(47,111,78,.11);
+  }
+  ::placeholder{color:#bdbcb6}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:22px}
+  @media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+
+  table.rows{width:100%;border-collapse:collapse;margin-top:4px}
+  table.rows th{
+    text-align:left;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;
+    color:var(--hint);font-weight:600;padding:0 8px 7px 0;
+  }
+  table.rows td{padding:0 8px 8px 0;vertical-align:top}
+  table.rows td:last-child,table.rows th:last-child{padding-right:0}
+  table.rows input{font-size:14px;padding:9px 11px}
+  .addrow{
+    background:none;border:1px dashed var(--line);color:var(--mid);
+    border-radius:7px;padding:7px 13px;font:inherit;font-size:13px;cursor:pointer;margin-top:2px;
+  }
+  .addrow:hover{border-color:var(--accent);color:var(--accent)}
+
+  .criteria .crow{display:flex;gap:9px;align-items:center;margin-bottom:8px}
+  .criteria .crow span{color:var(--hint);font-size:13px;flex:0 0 auto}
+
+  /* optional blocks */
+  .optwrap{border:1px solid var(--line);border-radius:10px;overflow:hidden;margin-bottom:12px;background:#fff}
+  .opthead{display:flex;gap:12px;align-items:flex-start;padding:15px 18px;cursor:pointer;user-select:none}
+  .opthead:hover{background:#fcfcfb}
+  .opthead input{margin:3px 0 0;width:16px;height:16px;accent-color:var(--accent);flex:0 0 auto;cursor:pointer}
+  .optttl{font-weight:600;font-size:14.5px}
+  .opttrig{color:var(--hint);font-size:12.5px;line-height:1.5;margin-top:2px}
+  .optbody{display:none;padding:4px 18px 20px;border-top:1px solid var(--line)}
+  .optwrap.on .optbody{display:block}
+  .optwrap.on{border-color:#c9d8cf;box-shadow:0 0 0 3px rgba(47,111,78,.06)}
+  .optbody .field{margin-bottom:20px}
+  .rule{
+    background:var(--warn-soft);color:var(--warn);border-radius:8px;
+    padding:11px 14px;font-size:13px;line-height:1.55;margin-top:14px;
+  }
+
+  .bar{
+    position:sticky;bottom:0;margin:32px -24px -120px;padding:16px 24px 22px;
+    background:linear-gradient(to top,var(--bg) 62%,rgba(250,249,247,0));
+    display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+  }
+  button.primary{
+    background:var(--accent);color:#fff;border:0;border-radius:9px;
+    padding:12px 22px;font:inherit;font-weight:600;font-size:14.5px;cursor:pointer;
+  }
+  button.primary:hover{background:#275c41}
+  button.ghost{
+    background:#fff;color:var(--mid);border:1px solid var(--line);border-radius:9px;
+    padding:12px 18px;font:inherit;font-size:14.5px;cursor:pointer;
+  }
+  button.ghost:hover{border-color:var(--mid);color:var(--ink)}
+  .status{color:var(--accent);font-size:13.5px;font-weight:600;opacity:0;transition:opacity .2s}
+  .status.show{opacity:1}
+
+  dialog{
+    border:0;border-radius:14px;padding:0;max-width:760px;width:92vw;
+    box-shadow:0 24px 70px rgba(0,0,0,.22);
+  }
+  dialog::backdrop{background:rgba(28,28,26,.42)}
+  .dlghead{padding:20px 24px 14px;border-bottom:1px solid var(--line)}
+  .dlghead h3{margin:0 0 3px;font-size:16px}
+  .dlghead p{margin:0;color:var(--hint);font-size:13px}
+  #out{
+    width:100%;height:52vh;border:0;border-radius:0;padding:18px 24px;
+    font:12.5px/1.65 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    resize:none;background:#fbfbfa;color:#2a2a28;
+  }
+  #out:focus{outline:none;box-shadow:none}
+  .dlgfoot{padding:14px 24px 20px;display:flex;gap:10px;justify-content:flex-end}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <h1>Initiative form</h1>
+  <p class="sub">Kismet x Monoku &nbsp;·&nbsp; v2 &nbsp;·&nbsp; fill this in, then press Copy and paste straight into Linear</p>
+  <div class="lede">
+    Built on Monoku's initiative template, with two handover tables, a decisions table
+    and a status that runs through to measured added. Grey text under each field is a
+    prompt, not a rule. Leave anything that doesn't apply and it won't appear in the output.
+    <br><br>
+    When you're done, press the button at the bottom. It gives you a markdown file to
+    attach in Slack, so nothing gets mangled between here and Linear.
+  </div>
+</header>
+
+<!-- ============ HEADER ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">SETUP</span><h2>Ticket header</h2></div>
+  <p class="secnote">The fields that make the board readable without opening every ticket.</p>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_ticket">Linear ticket</label>
+      <span class="help">Leave blank if this is a brand new ticket. If you're filling out one that already exists, put the ID here so Alejandra updates it instead of creating a duplicate.</span>
+      <input type="text" id="f_ticket" placeholder="e.g. KISDEV-342">
+    </div>
+    <div class="field">
+      <label for="f_curtitle">Current title on the board</label>
+      <span class="help">Only if you put a ticket ID above. Paste it exactly as it reads on the board.</span>
+      <input type="text" id="f_curtitle" placeholder="e.g. Initiative: Implement CRO/Heatmap tool on the platform">
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="f_title">Title</label>
+    <span class="help">Start with the outcome, not the task. If you're updating an existing ticket and the current title is fine, paste the same thing again. If you write something different, it gets flagged as a suggested rename rather than applied silently.</span>
+    <input type="text" id="f_title" placeholder="e.g. Server-render Yotpo aggregateRating into Product JSON-LD">
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_theme">Theme</label>
+      <span class="help">The problem family this belongs to.</span>
+      <select id="f_theme">
+        <option value="">Select…</option>
+        <option>Too many obstacles to decide and buy on the product page</option>
+        <option>Checkout experience breaks trust and loses conversions</option>
+        <option>Landing pages aren't built to convert</option>
+        <option>AI ad pipeline lacks quality controls and consistent output</option>
+        <option>Subscription and account management is hard to use</option>
+        <option>Brand trust signals are missing or invisible</option>
+        <option>SEO / AEO / GEO</option>
+        <option>Tracking and analytics gaps</option>
+        <option>Other (say in the problem below)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f_pillar">Pillar</label>
+      <span class="help">Existing board taxonomy. Nothing new to learn.</span>
+      <select id="f_pillar">
+        <option value="">Select…</option>
+        <option>Avatar</option>
+        <option>Offer</option>
+        <option>Landing Pages</option>
+        <option>Diverse Creatives</option>
+        <option>Website &amp; Conversion</option>
+        <option>Platform &amp; AI</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="field">
+      <label for="f_priority">Priority</label>
+      <span class="help">Ours to set.</span>
+      <select id="f_priority">
+        <option value="">Select…</option>
+        <option>Urgent</option>
+        <option selected>High</option>
+        <option>Medium</option>
+        <option>Low</option>
+        <option>No priority</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f_effort">Effort</label>
+      <span class="help">Monoku's to set, not ours.</span>
+      <select id="f_effort">
+        <option selected>Monoku to size</option>
+        <option>XS — under a day</option>
+        <option>S — about a day</option>
+        <option>M — two to three days</option>
+        <option>L — about a week</option>
+        <option>XL — over a week</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f_status">Status</label>
+      <span class="help">Ends at measured, not live.</span>
+      <select id="f_status">
+        <option selected>Proposed</option>
+        <option>In refinement</option>
+        <option>Ready to build</option>
+        <option>In build</option>
+        <option>In QA</option>
+        <option>Live</option>
+        <option>Measured</option>
+        <option>Blocked</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="grid3">
+    <div class="field">
+      <label for="f_by">Raised by</label>
+      <span class="help">Who to come back to.</span>
+      <input type="text" id="f_by" placeholder="Ints">
+    </div>
+    <div class="field">
+      <label for="f_date">Date raised</label>
+      <span class="help">&nbsp;</span>
+      <input type="date" id="f_date">
+    </div>
+    <div class="field">
+      <label for="f_design">Needs design first</label>
+      <span class="help">Decides if dev is blocked.</span>
+      <select id="f_design">
+        <option selected>Monoku to advise</option>
+        <option>Yes</option>
+        <option>No</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="f_source">Source</label>
+    <span class="help">Who asked and where it's written down. A Slack link, a call date, a doc. A ticket with no source becomes an orphan the moment that person moves on.</span>
+    <input type="text" id="f_source" placeholder="e.g. Mathé, Slack #kismet-collab 2 Aug · or: refinement call 29 July">
+  </div>
+</section>
+
+<!-- ============ 1-2 ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">1</span><h2>The problem</h2></div>
+  <p class="secnote">Two fields. The first is why it matters, the second stops us arguing later about what it used to do.</p>
+
+  <div class="field">
+    <label for="f_problem">Problem, what's happening</label>
+    <span class="help">In the customer's or the business's words, not the solution. If you find yourself describing a fix, that belongs in section 3.</span>
+    <textarea id="f_problem" placeholder="e.g. Review ratings render only through Yotpo's JavaScript, so crawlers and AI engines never see them."></textarea>
+  </div>
+
+  <div class="field">
+    <label for="f_today">What's true today</label>
+    <span class="help">What the site or system actually does right now, observed, with the date you checked and the number if there is one. This becomes your baseline for free.</span>
+    <textarea id="f_today" placeholder="e.g. Product JSON-LD on both food PDPs contains no aggregateRating. Checked 29 July."></textarea>
+  </div>
+</section>
+
+<!-- ============ 3-4 ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">2</span><h2>Why we're doing it</h2></div>
+  <p class="secnote">This is the part that lets Marcia and Andrés push back with a better idea than ours. Worth the two minutes.</p>
+
+  <div class="field">
+    <label for="f_goal">Strategic goal</label>
+    <span class="help">Which goal this serves.</span>
+    <textarea id="f_goal" style="min-height:56px" placeholder="e.g. Increase visibility in search and AI results, where we're absent from 11 of 12 purchase-intent queries."></textarea>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_bizval">Business value</label>
+      <span class="help">What changes commercially.</span>
+      <textarea id="f_bizval" placeholder="e.g. Star ratings in search results, so higher CTR and trust, so more organic traffic."></textarea>
+    </div>
+    <div class="field">
+      <label for="f_prodval">Product value</label>
+      <span class="help">What changes for the person using it.</span>
+      <textarea id="f_prodval" placeholder="e.g. Social proof that already exists becomes visible where the buyer decides."></textarea>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5-7 ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">3</span><h2>What we'd like to do</h2></div>
+  <p class="secnote">The proposal, the finish line, and the edges.</p>
+
+  <div class="field">
+    <label for="f_want">The change</label>
+    <span class="help">What we're proposing. If a smaller version could ship first and teach us something, say so and call it the MVP.</span>
+    <textarea id="f_want" placeholder="e.g. Server-render the aggregateRating into the Product JSON-LD from Shopify metafields. MVP is both food PDPs; the rest can follow."></textarea>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_success">What success looks like</label>
+      <span class="help">The observable end state, in plain terms.</span>
+      <textarea id="f_success" placeholder="e.g. Valid, server-rendered aggregateRating on all PDPs, eligible for rich results."></textarea>
+    </div>
+    <div class="field">
+      <label for="f_metric">The metric that should move</label>
+      <span class="help">One metric. If you can't name one, say why not.</span>
+      <textarea id="f_metric" placeholder="e.g. Organic impressions and CTR on PDPs, Search Console."></textarea>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_in">In scope</label>
+      <span class="help">What we're asking for.</span>
+      <textarea id="f_in" placeholder="e.g. Render rating value and review count from Shopify metafields into the JSON-LD."></textarea>
+    </div>
+    <div class="field">
+      <label for="f_out">Out of scope</label>
+      <span class="help">The bit that stops scope creep. Name the near-miss things people will assume are included.</span>
+      <textarea id="f_out" placeholder="e.g. Review widget redesign. Yotpo migration."></textarea>
+    </div>
+  </div>
+
+  <div class="field criteria">
+    <label>Acceptance criteria</label>
+    <span class="help">How we'll agree it's done. Testable statements, not opinions. If instrumentation has to fire before launch, that's a criterion too.</span>
+    <div id="crit">
+      <div class="crow"><span>1</span><input type="text" placeholder="e.g. Product JSON-LD includes aggregateRating on all PDPs"></div>
+      <div class="crow"><span>2</span><input type="text" placeholder="e.g. Validates in Google's Rich Results Test with no errors"></div>
+      <div class="crow"><span>3</span><input type="text" placeholder="e.g. Values match what Yotpo displays on the page"></div>
+    </div>
+    <button class="addrow" type="button" onclick="addCrit()">+ Add criterion</button>
+  </div>
+</section>
+
+<!-- ============ HANDOVER ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">4</span><h2>The handover</h2></div>
+  <p class="secnote">Both directions, so nothing sits waiting silently. These two tables are where most of the back and forth goes to die.</p>
+
+  <div class="field">
+    <label>What Kismet will provide</label>
+    <span class="help">Everything Monoku needs from us to start and finish: copy, assets, approvals, access, confirmations. Put a name and a date against each one. If it's late, the ticket is blocked and says so.</span>
+    <table class="rows">
+      <thead><tr><th style="width:44%">What</th><th style="width:18%">Who</th><th style="width:20%">By when</th><th style="width:18%">Blocks</th></tr></thead>
+      <tbody id="tb_give">
+        <tr>
+          <td><input type="text" placeholder="e.g. Approved copy strings"></td>
+          <td><input type="text" placeholder="Ints"></td>
+          <td><input type="text" placeholder="before build"></td>
+          <td><input type="text" placeholder="the build"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="addrow" type="button" onclick="addRow('tb_give',4)">+ Add row</button>
+  </div>
+
+  <div class="field">
+    <label>What we need from Monoku</label>
+    <span class="help">What we're asking them for before or alongside the build. Usually an estimate, a feasibility read, options with trade-offs, or a recommendation. Being explicit here is what stops a ticket coming back with a question a week later.</span>
+    <table class="rows">
+      <thead><tr><th style="width:62%">What</th><th style="width:38%">By when</th></tr></thead>
+      <tbody id="tb_need">
+        <tr>
+          <td><input type="text" placeholder="e.g. Rough estimate so we can decide cycle vs backlog"></td>
+          <td><input type="text" placeholder="Wednesday refinement"></td>
+        </tr>
+        <tr>
+          <td><input type="text" placeholder="e.g. Two options with trade-offs, and your recommendation"></td>
+          <td><input type="text" placeholder=""></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="addrow" type="button" onclick="addRow('tb_need',2)">+ Add row</button>
+  </div>
+
+  <div class="field">
+    <label>Decisions needed</label>
+    <span class="help">Anything where someone has to choose. Writing it here with a name and a date is what stops it being guessed at. If there are none, leave it empty.</span>
+    <table class="rows">
+      <thead><tr><th style="width:30%">Question</th><th style="width:22%">Options</th><th style="width:22%">Our recommendation</th><th style="width:13%">Owner</th><th style="width:13%">By when</th></tr></thead>
+      <tbody id="tb_dec">
+        <tr>
+          <td><input type="text" placeholder="e.g. This cycle or backlog?"></td>
+          <td><input type="text" placeholder="cycle / next / backlog"></td>
+          <td><input type="text" placeholder="pending estimate"></td>
+          <td><input type="text" placeholder="Ints"></td>
+          <td><input type="text" placeholder="Wed"></td>
+        </tr>
+      </tbody>
+    </table>
+    <button class="addrow" type="button" onclick="addRow('tb_dec',5)">+ Add row</button>
+  </div>
+</section>
+
+<!-- ============ OPTIONAL ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">5</span><h2>Optional blocks</h2></div>
+  <p class="secnote">Tick one only if its trigger applies. Most tickets need none of them, and unticked blocks don't appear in the output.</p>
+
+  <div class="optwrap" id="opt_claims">
+    <label class="opthead">
+      <input type="checkbox" onchange="tog(this,'opt_claims')">
+      <span>
+        <span class="optttl">Claims and copy</span>
+        <span class="opttrig">Tick if the ticket changes text a customer reads, or touches a health, clinical, ingredient, delivery or pricing claim.</span>
+      </span>
+    </label>
+    <div class="optbody">
+      <div class="grid2">
+        <div class="field">
+          <label for="c_owner">Who owns the wording</label>
+          <span class="help">Copy and implementation are different jobs.</span>
+          <select id="c_owner"><option selected>Kismet</option><option>Monoku</option></select>
+        </div>
+        <div class="field">
+          <label for="c_legal">Legal glance needed</label>
+          <span class="help">Anything public-facing and provable.</span>
+          <select id="c_legal"><option selected>Yes</option><option>No</option></select>
+        </div>
+      </div>
+      <div class="field">
+        <label for="c_src">Canonical source</label>
+        <span class="help">Link the exact version of the claims doc the strings came from.</span>
+        <input type="text" id="c_src" placeholder="Kismet canonical claims and offer doc, version / link">
+      </div>
+      <div class="field">
+        <label for="c_screen">Survives a screenshot</label>
+        <span class="help">True for everyone who reads it, not true on average. A promise that's right 80% of the time is wrong.</span>
+        <select id="c_screen"><option selected>Needs checking</option><option>Yes</option><option>No</option></select>
+      </div>
+      <div class="rule">Kismet supplies claim strings verbatim. Monoku implements them as supplied, without paraphrasing, shortening or re-punctuating.</div>
+    </div>
+  </div>
+
+  <div class="optwrap" id="opt_test">
+    <label class="opthead">
+      <input type="checkbox" onchange="tog(this,'opt_test')">
+      <span>
+        <span class="optttl">Test plan</span>
+        <span class="opttrig">Tick if this changes customer-facing behaviour and we don't already know it works.</span>
+      </span>
+    </label>
+    <div class="optbody">
+      <div class="field">
+        <label for="t_hyp">Hypothesis</label>
+        <span class="help">What we think will happen, and why. One sentence.</span>
+        <textarea id="t_hyp" style="min-height:56px" placeholder="e.g. A truthful dispatch window under the checkout button reduces post-click uncertainty and lifts conversion."></textarea>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="t_ab">A and B</label>
+          <span class="help">What each variant shows.</span>
+          <textarea id="t_ab" style="min-height:56px" placeholder="A: current drawer, no line. B: drawer with the line. 50/50, sticky."></textarea>
+        </div>
+        <div class="field">
+          <label for="t_prim">Primary metric</label>
+          <span class="help">One. Decided before the test runs.</span>
+          <textarea id="t_prim" style="min-height:56px" placeholder="e.g. Drawer-to-order conversion."></textarea>
+        </div>
+      </div>
+      <div class="field">
+        <label for="t_guard">Guardrail metrics</label>
+        <span class="help">What must not get worse while the primary metric goes up. Usually AOV, refunds, subscription mix, and CX contacts on the topic. A guardrail breach beats a win.</span>
+        <textarea id="t_guard" style="min-height:56px" placeholder="e.g. AOV, refund rate, delivery-related CX contacts, subscription mix."></textarea>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="t_roll">Rollback</label>
+          <span class="help">Should be a flag to 0%, not a redeploy.</span>
+          <input type="text" id="t_roll" placeholder="Flag to 0%">
+        </div>
+        <div class="field">
+          <label for="t_rule">Decision rule</label>
+          <span class="help">Written now so the result isn't argued after.</span>
+          <input type="text" id="t_rule" placeholder="Ship B if primary lifts with no guardrail breach past significance">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="optwrap" id="opt_design">
+    <label class="opthead">
+      <input type="checkbox" onchange="tog(this,'opt_design')">
+      <span>
+        <span class="optttl">Design dependency</span>
+        <span class="opttrig">Tick if design has to land before dev can start. Andrés is a single designer and the queue runs through him.</span>
+      </span>
+    </label>
+    <div class="optbody">
+      <div class="field">
+        <label for="d_prod">What design has to produce</label>
+        <span class="help">Screens, states, breakpoints.</span>
+        <textarea id="d_prod" style="min-height:56px" placeholder="e.g. Page layout, desktop and mobile."></textarea>
+      </div>
+      <div class="grid2">
+        <div class="field">
+          <label for="d_rev">Who reviews it</label>
+          <span class="help">Name the people, not the team.</span>
+          <input type="text" id="d_rev" placeholder="Ints, Nat, Mathé">
+        </div>
+        <div class="field">
+          <label for="d_due">Feedback due by</label>
+          <span class="help">Both sides named feedback latency as the main delay. A date is the fix.</span>
+          <input type="text" id="d_due" placeholder="2 working days from share">
+        </div>
+      </div>
+      <div class="field">
+        <label for="d_par">What dev can build in parallel</label>
+        <span class="help">So Marcia isn't sitting idle while design runs.</span>
+        <textarea id="d_par" style="min-height:56px" placeholder="e.g. The crawlable rendering, which is independent of layout."></textarea>
+      </div>
+    </div>
+  </div>
+
+  <div class="optwrap" id="opt_spend">
+    <label class="opthead">
+      <input type="checkbox" onchange="tog(this,'opt_spend')">
+      <span>
+        <span class="optttl">Third-party tool or spend</span>
+        <span class="opttrig">Tick if this introduces an app, a subscription or any recurring cost.</span>
+      </span>
+    </label>
+    <div class="optbody">
+      <div class="field">
+        <label for="s_opts">Options considered</label>
+        <span class="help">Two or three, with the trade-off in a line each.</span>
+        <textarea id="s_opts" style="min-height:56px" placeholder="e.g. Hotjar, Clarity, build our own."></textarea>
+      </div>
+      <div class="grid3">
+        <div class="field">
+          <label for="s_cost">Recurring cost</label>
+          <span class="help">Monthly.</span>
+          <input type="text" id="s_cost" placeholder="$/mo">
+        </div>
+        <div class="field">
+          <label for="s_lock">Lock-in and exit</label>
+          <span class="help">How hard to leave.</span>
+          <input type="text" id="s_lock" placeholder="Contract, data export">
+        </div>
+        <div class="field">
+          <label for="s_appr">Who approves</label>
+          <span class="help">Spend owner.</span>
+          <input type="text" id="s_appr" placeholder="Mathé">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ IMPACT ============ -->
+<section class="card">
+  <div class="sechead"><span class="num">6</span><h2>Impact tracking</h2></div>
+  <p class="secnote">Kismet-owned, filled in after launch. This is what moves a ticket from live to measured.</p>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="i_metric">Metric to watch</label>
+      <span class="help">Usually the same one from section 3.</span>
+      <input type="text" id="i_metric" placeholder="e.g. Organic impressions and CTR on PDPs">
+    </div>
+    <div class="field">
+      <label for="i_window">Measurement window</label>
+      <span class="help">How long after deploy before we read it.</span>
+      <select id="i_window">
+        <option value="">Select…</option>
+        <option>7 days post-deploy</option>
+        <option>14 days post-deploy</option>
+        <option selected>30 days post-deploy</option>
+        <option>60 days post-deploy</option>
+        <option>90 days post-deploy</option>
+        <option>Run to significance</option>
+      </select>
+    </div>
+  </div>
+  <div class="grid2">
+    <div class="field">
+      <label for="i_base">Baseline at launch</label>
+      <span class="help">Pull it from "what's true today" if you filled that in.</span>
+      <input type="text" id="i_base" placeholder="Leave blank until it ships">
+    </div>
+    <div class="field">
+      <label for="i_owner">Who reads it</label>
+      <span class="help">A named person, or nobody does it.</span>
+      <input type="text" id="i_owner" placeholder="Ints">
+    </div>
+  </div>
+</section>
+
+<div class="bar">
+  <button class="primary" type="button" onclick="build()">Done, show me the handover</button>
+  <button class="ghost" type="button" onclick="if(confirm('Clear the whole form?'))location.reload()">Clear</button>
+  <span class="status" id="stat">Copied.</span>
+</div>
+
+</div>
+
+<dialog id="dlg">
+  <div class="dlghead">
+    <h3>Ready to hand over</h3>
+    <p id="dlginst">—</p>
+  </div>
+  <textarea id="out" spellcheck="false"></textarea>
+  <div class="dlgfoot">
+    <button class="ghost" type="button" onclick="document.getElementById('dlg').close()">Close</button>
+    <button class="ghost" type="button" onclick="copyPart('title')">Copy title</button>
+    <button class="ghost" type="button" onclick="copyPart('body')">Copy description</button>
+    <button class="ghost" type="button" onclick="copyPart('slack')">Copy covering note</button>
+    <button class="primary" type="button" onclick="download()">Download .md</button>
+  </div>
+</dialog>
+
+<script>
+(function(){
+  var d=new Date(), p=function(n){return String(n).padStart(2,'0')};
+  document.getElementById('f_date').value=d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate());
+})();
+
+function tog(cb,id){ document.getElementById(id).classList.toggle('on',cb.checked); }
+
+function addCrit(){
+  var w=document.getElementById('crit'), n=w.children.length+1;
+  var r=document.createElement('div'); r.className='crow';
+  r.innerHTML='<span>'+n+'</span><input type="text">';
+  w.appendChild(r); r.querySelector('input').focus();
+}
+function addRow(id,cols){
+  var tb=document.getElementById(id), tr=document.createElement('tr'), h='';
+  for(var i=0;i<cols;i++) h+='<td><input type="text"></td>';
+  tr.innerHTML=h; tb.appendChild(tr); tr.querySelector('input').focus();
+}
+
+function v(id){ var e=document.getElementById(id); return e?e.value.trim():''; }
+function on(id){ var e=document.querySelector('#'+id+' .opthead input'); return e&&e.checked; }
+
+function rows(id){
+  var out=[];
+  document.querySelectorAll('#'+id+' tr').forEach(function(tr){
+    var cells=[].map.call(tr.querySelectorAll('input'),function(i){return i.value.trim()});
+    if(cells.some(function(c){return c})) out.push(cells);
+  });
+  return out;
+}
+function mdTable(headers, data){
+  if(!data.length) return '';
+  var s='| '+headers.join(' | ')+' |\n|'+headers.map(function(){return '---'}).join('|')+'|\n';
+  data.forEach(function(r){ s+='| '+r.map(function(c){return c||' '}).join(' | ')+' |\n'; });
+  return s;
+}
+
+function compose(){
+  var L=[], add=function(s){L.push(s)};
+  var hdr=[];
+  if(v('f_theme'))    hdr.push('**Theme:** '+v('f_theme'));
+  if(v('f_pillar'))   hdr.push('**Pillar:** '+v('f_pillar'));
+  if(v('f_priority')) hdr.push('**Priority:** '+v('f_priority'));
+  hdr.push('**Effort:** '+v('f_effort'));
+  hdr.push('**Status:** '+v('f_status'));
+  hdr.push('**Needs design first:** '+v('f_design'));
+  if(v('f_by')||v('f_date')) hdr.push('**Raised by:** '+[v('f_by'),v('f_date')].filter(Boolean).join(', '));
+  if(v('f_source'))   hdr.push('**Source:** '+v('f_source'));
+  add(hdr.join('  \n'));
+  add('');
+  add('---');
+
+  if(v('f_problem')){ add(''); add("### Problem, what's happening"); add(''); add(v('f_problem')); }
+  if(v('f_today')){   add(''); add("### What's true today"); add(''); add(v('f_today')); }
+  if(v('f_goal')){    add(''); add('### Strategic goal'); add(''); add(v('f_goal')); }
+  if(v('f_bizval')||v('f_prodval')){
+    add(''); add('### Business and product value'); add('');
+    if(v('f_bizval'))  add('**Business:** '+v('f_bizval'));
+    if(v('f_prodval')) add('**Product:** '+v('f_prodval'));
+  }
+  if(v('f_want')){ add(''); add("### What we'd like to do"); add(''); add(v('f_want')); }
+  if(v('f_success')||v('f_metric')){
+    add(''); add('### What success looks like'); add('');
+    if(v('f_success')) add(v('f_success'));
+    if(v('f_metric')){ add(''); add('**Metric:** '+v('f_metric')); }
+  }
+  if(v('f_in')||v('f_out')){
+    add(''); add('### Scope'); add('');
+    if(v('f_in'))  add('**In scope:** '+v('f_in'));
+    if(v('f_out')) add('**Out of scope:** '+v('f_out'));
+  }
+  var crits=[].map.call(document.querySelectorAll('#crit input'),function(i){return i.value.trim()}).filter(Boolean);
+  if(crits.length){
+    add(''); add('### Acceptance criteria'); add('');
+    crits.forEach(function(c){ add('- [ ] '+c); });
+  }
+
+  var give=rows('tb_give'), need=rows('tb_need'), dec=rows('tb_dec');
+  if(give.length){ add(''); add('### What Kismet will provide'); add(''); add(mdTable(['What','Who','By when','Blocks'],give)); }
+  if(need.length){ add(''); add('### What we need from Monoku'); add(''); add(mdTable(['What','By when'],need)); }
+  if(dec.length){  add(''); add('### Decisions needed'); add(''); add(mdTable(['Question','Options','Our recommendation','Owner','By when'],dec)); }
+
+  if(on('opt_claims')){
+    add(''); add('### Claims and copy'); add('');
+    add('- Wording owner: '+v('c_owner'));
+    if(v('c_src')) add('- Canonical source: '+v('c_src'));
+    add('- Survives a screenshot: '+v('c_screen'));
+    add('- Legal glance needed: '+v('c_legal'));
+    add('');
+    add('> Kismet supplies claim strings verbatim. Monoku implements them as supplied, without paraphrasing, shortening or re-punctuating.');
+  }
+  if(on('opt_test')){
+    add(''); add('### Test plan'); add('');
+    if(v('t_hyp'))   add('**Hypothesis:** '+v('t_hyp'));
+    if(v('t_ab'))    add('**A / B:** '+v('t_ab'));
+    if(v('t_prim'))  add('**Primary metric:** '+v('t_prim'));
+    if(v('t_guard')) add('**Guardrails:** '+v('t_guard'));
+    if(v('t_roll'))  add('**Rollback:** '+v('t_roll'));
+    if(v('t_rule'))  add('**Decision rule:** '+v('t_rule'));
+  }
+  if(on('opt_design')){
+    add(''); add('### Design dependency'); add('');
+    if(v('d_prod')) add('**Design produces:** '+v('d_prod'));
+    if(v('d_rev'))  add('**Reviewers:** '+v('d_rev'));
+    if(v('d_due'))  add('**Feedback due by:** '+v('d_due'));
+    if(v('d_par'))  add('**Dev can build in parallel:** '+v('d_par'));
+  }
+  if(on('opt_spend')){
+    add(''); add('### Third-party tool or spend'); add('');
+    if(v('s_opts')) add('**Options considered:** '+v('s_opts'));
+    if(v('s_cost')) add('**Recurring cost:** '+v('s_cost'));
+    if(v('s_lock')) add('**Lock-in and exit:** '+v('s_lock'));
+    if(v('s_appr')) add('**Who approves:** '+v('s_appr'));
+  }
+
+  if(v('i_metric')||v('i_window')||v('i_base')||v('i_owner')){
+    add(''); add('### Impact tracking, Kismet, post-launch'); add('');
+    add('- Metric to watch: '+(v('i_metric')||''));
+    add('- Baseline at launch: '+(v('i_base')||''));
+    add('- Result post-launch: ');
+    add('- Measurement window: '+(v('i_window')||''));
+    add('- Who reads it: '+(v('i_owner')||''));
+  }
+
+  return L.join('\n').replace(/\n{3,}/g,'\n\n').trim()+'\n';
+}
+
+function titleOf(){ return v('f_title')||'Untitled initiative'; }
+
+function instruction(){
+  var id=v('f_ticket'), cur=v('f_curtitle'), t=titleOf();
+  if(!id) return { line:'New ticket. Nothing exists on the board for this yet.',
+                   slack:'New one for the board, written up on the template. Markdown file attached, ready to paste straight in.' };
+  var rename = (cur && cur!==t)
+    ? ' Current title reads "'+cur+'". Suggest renaming to "'+t+'", but keep it as is if you would rather.'
+    : ' Title unchanged.';
+  return {
+    line:'Update to '+id+'. The description below replaces what is on the ticket now.'+rename,
+    slack:'Filled out '+id+' on the template so it is properly defined before it gets picked up.'+rename
+  };
+}
+
+function slackNote(){
+  var i=instruction(), id=v('f_ticket');
+  return i.slack+'\n\n'
+       + (id? id+' — ' : '') + titleOf() + '\n\n'
+       + 'Full description is in the attached markdown file, so nothing gets mangled on the way over. '
+       + 'Anything unclear, or that you would size differently, tell me and I will change it rather than you guessing.';
+}
+
+function slug(){
+  var id=v('f_ticket'), t=titleOf().toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,50);
+  return (id? id.toUpperCase()+'-' : '') + (t||'initiative');
+}
+
+function build(){
+  var i=instruction();
+  document.getElementById('dlginst').textContent=i.line;
+  document.getElementById('out').value=compose();
+  document.getElementById('dlg').showModal();
+}
+
+function download(){
+  var blob=new Blob([compose()],{type:'text/markdown;charset=utf-8'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(blob); a.download=slug()+'.md';
+  document.body.appendChild(a); a.click();
+  setTimeout(function(){ URL.revokeObjectURL(a.href); a.remove(); },500);
+  flash('Downloaded '+slug()+'.md');
+}
+
+function copyPart(which){
+  var t = which==='title' ? titleOf()
+        : which==='slack' ? slackNote()
+        : compose();
+  copyText(t, function(ok){
+    flash(ok ? (which==='title'?'Title copied.':which==='slack'?'Covering note copied.':'Description copied.')
+             : 'Select the text below and copy it manually.');
+  });
+}
+
+function flash(msg){
+  var s=document.getElementById('stat');
+  s.textContent=msg; s.classList.add('show');
+  setTimeout(function(){s.classList.remove('show')},3000);
+}
+
+function copyText(t,cb){
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t).then(function(){cb(true)},function(){cb(false)});
+  } else {
+    var ta=document.getElementById('out'), keep=ta.value;
+    ta.value=t; ta.select();
+    var ok=false; try{ok=document.execCommand('copy')}catch(e){}
+    ta.value=keep; cb(ok);
+  }
+}
+</script>
+</body>
+</html>
