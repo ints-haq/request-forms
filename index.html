@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<meta name="googlebot" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Kismet · Discount Code Request</title>
+<style>
+  :root{
+    --ink:#1a1613;
+    --ink-2:#4a423b;
+    --ink-3:#7a6f65;
+    --paper:#faf6f1;
+    --card:#ffffff;
+    --line:#e3dbd1;
+    --line-2:#cfc4b6;
+    --accent:#8a5a3b;
+    --accent-soft:#f4ece3;
+    --warn:#8a5a00;
+    --warn-bg:#fdf4e0;
+    --warn-line:#e8d2a0;
+    --ok:#3d6b4a;
+    --ok-bg:#eef5ef;
+    --ok-line:#c3ddc9;
+    --req:#a3402b;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font:16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding:0 0 80px;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding:0 20px}
+
+  header.top{
+    padding:48px 0 28px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:32px;
+  }
+  .brand{
+    font:600 13px/1 ui-sans-serif,sans-serif;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 14px;
+  }
+  h1{
+    font:600 34px/1.2 Georgia,"Times New Roman",serif;
+    margin:0 0 12px;
+    letter-spacing:-.01em;
+  }
+  .lede{margin:0;color:var(--ink-2);max-width:60ch}
+  .lede + .lede{margin-top:10px}
+
+  section{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:26px 26px 30px;
+    margin:0 0 20px;
+  }
+  h2{
+    font:600 12px/1 ui-sans-serif,sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 6px;
+  }
+  .sect-note{margin:0 0 22px;color:var(--ink-3);font-size:14px;max-width:62ch}
+
+  .field{margin:0 0 22px}
+  .field:last-child{margin-bottom:0}
+  .row{display:flex;gap:18px;flex-wrap:wrap}
+  .row > .field{flex:1 1 220px}
+
+  label.lbl{
+    display:block;
+    font-weight:600;
+    font-size:15px;
+    margin:0 0 4px;
+  }
+  .hint{
+    display:block;
+    font-size:13.5px;
+    color:var(--ink-3);
+    margin:0 0 8px;
+    max-width:66ch;
+  }
+  .req-star{color:var(--req);font-weight:700}
+
+  input[type=text],input[type=number],input[type=date],select,textarea{
+    width:100%;
+    font:inherit;
+    color:var(--ink);
+    background:#fff;
+    border:1px solid var(--line-2);
+    border-radius:7px;
+    padding:10px 12px;
+    transition:border-color .12s,box-shadow .12s;
+  }
+  select{
+    appearance:none;
+    background-image:url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%237a6f65' stroke-width='1.6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;
+    background-position:right 12px center;
+    padding-right:34px;
+  }
+  textarea{min-height:110px;resize:vertical;line-height:1.5}
+  input:focus,select:focus,textarea:focus{
+    outline:none;
+    border-color:var(--accent);
+    box-shadow:0 0 0 3px rgba(138,90,59,.14);
+  }
+  .invalid{border-color:var(--req) !important;background:#fdf5f3}
+
+  .checks{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:4px}
+  .checks label{
+    display:flex;align-items:center;gap:8px;
+    font-size:15px;cursor:pointer;
+  }
+  input[type=checkbox]{width:17px;height:17px;accent-color:var(--accent);cursor:pointer}
+
+  .consequence{
+    margin-top:10px;
+    padding:11px 14px;
+    background:var(--accent-soft);
+    border-left:3px solid var(--accent);
+    border-radius:0 6px 6px 0;
+    font-size:14px;
+    color:var(--ink-2);
+  }
+  .consequence strong{color:var(--ink)}
+
+  .warnbox{
+    margin-top:10px;
+    padding:12px 14px;
+    background:var(--warn-bg);
+    border:1px solid var(--warn-line);
+    border-radius:7px;
+    font-size:14px;
+    color:#5c3d00;
+  }
+  .warnbox strong{color:#3d2900}
+  .hidden{display:none !important}
+
+  .default-tag{
+    display:inline-block;
+    font-size:11px;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    font-weight:600;
+    color:var(--ok);
+    background:var(--ok-bg);
+    border:1px solid var(--ok-line);
+    border-radius:20px;
+    padding:2px 9px;
+    margin-left:8px;
+    vertical-align:2px;
+  }
+
+  /* summary */
+  #summary{
+    background:#fffdfa;
+    border:1px solid var(--line-2);
+  }
+  .sum-row{
+    display:flex;justify-content:space-between;gap:20px;
+    padding:9px 0;border-bottom:1px dotted var(--line);
+    font-size:15px;
+  }
+  .sum-row:last-of-type{border-bottom:0}
+  .sum-k{color:var(--ink-3)}
+  .sum-v{font-weight:600;text-align:right}
+
+  .actions{
+    display:flex;gap:12px;flex-wrap:wrap;
+    margin-top:8px;
+  }
+  button{
+    font:600 15px/1 inherit;
+    border-radius:8px;
+    padding:14px 22px;
+    cursor:pointer;
+    border:1px solid transparent;
+    transition:background .12s,border-color .12s;
+  }
+  .btn-primary{background:var(--ink);color:#fff}
+  .btn-primary:hover{background:#332b25}
+  .btn-ghost{background:#fff;border-color:var(--line-2);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+  #status{
+    margin-top:14px;font-size:14px;min-height:20px;
+  }
+  #status.err{color:var(--req);font-weight:600}
+  #status.ok{color:var(--ok);font-weight:600}
+
+  footer.foot{
+    margin-top:28px;padding-top:20px;border-top:1px solid var(--line);
+    font-size:13px;color:var(--ink-3);
+  }
+  @media (max-width:620px){
+    h1{font-size:27px}
+    section{padding:20px 18px 24px}
+    header.top{padding:32px 0 22px}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="top">
+  <p class="brand">Kismet · Digital &amp; Growth</p>
+  <h1>Discount code request</h1>
+  <p class="lede">Fill this in, press <strong>Copy the request</strong> at the bottom, then paste it into Slack or an email to Ints. Everything needed to build the code is in here, so there should be no back and forth.</p>
+  <p class="lede">Green <span class="default-tag">default</span> tags mark what Kismet normally does. If a default works for you, leave it. Under each choice is a plain note on what it means in practice.</p>
+</header>
+
+<form id="f" novalidate>
+
+<!-- 1 -->
+<section>
+  <h2>1 · Who is asking</h2>
+  <p class="sect-note">So the code can be traced back to a person and a decision later.</p>
+
+  <div class="row">
+    <div class="field">
+      <label class="lbl" for="reqName">Your name <span class="req-star">*</span></label>
+      <input type="text" id="reqName" autocomplete="name" placeholder="e.g. Tara Kellermeyer">
+    </div>
+    <div class="field">
+      <label class="lbl" for="reqTeam">Your team <span class="req-star">*</span></label>
+      <select id="reqTeam">
+        <option value="">Choose one</option>
+        <option>Partnerships &amp; Community</option>
+        <option>Retail</option>
+        <option>Creative</option>
+        <option>Paid Media</option>
+        <option>Customer Support</option>
+        <option>Leadership</option>
+        <option>Digital &amp; Growth</option>
+        <option>Other</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="approver">Who approved this discount <span class="req-star">*</span></label>
+    <span class="hint">A named person who has agreed to give this money away. It can be you if it is your budget and your call. This is a record, not a hurdle.</span>
+    <input type="text" id="approver" placeholder="e.g. Rob Code, approved on the partnerships call 12 Aug">
+  </div>
+</section>
+
+<!-- 2 -->
+<section>
+  <h2>2 · What it is for</h2>
+  <p class="sect-note">One or two lines. Enough that someone reading the Shopify list in six months knows what this code was.</p>
+
+  <div class="field">
+    <label class="lbl" for="purpose">Campaign, partner or event <span class="req-star">*</span></label>
+    <input type="text" id="purpose" placeholder="e.g. National Dog Day event with Parachute Home">
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="context">Anything useful about the audience</label>
+    <span class="hint">Who gets this code and how they will meet it. A room of people at an in-person event behaves very differently from an email list.</span>
+    <textarea id="context" placeholder="e.g. Roughly 100 guests at Parachute Home in LA on the day, plus anyone Parachute post to afterwards. Mostly new to Kismet."></textarea>
+  </div>
+
+  <div class="row">
+    <div class="field">
+      <label class="lbl" for="liveDate">Needs to be live by <span class="req-star">*</span></label>
+      <input type="date" id="liveDate">
+      <div id="leadWarn" class="warnbox hidden"></div>
+    </div>
+    <div class="field">
+      <label class="lbl" for="endDate">Should stop working on</label>
+      <span class="hint">Leave blank only if it genuinely should never expire. Almost every code should have an end date.</span>
+      <input type="date" id="endDate">
+    </div>
+  </div>
+
+  <div class="field hidden" id="urgentWrap">
+    <label class="lbl" for="urgentWhy">Why is it urgent? <span class="req-star">*</span></label>
+    <span class="hint">Under five working days there may not be time to test properly or build a landing page. Say what is driving the date so the right corners get cut.</span>
+    <textarea id="urgentWhy" placeholder="e.g. Partner confirmed the date late and their newsletter goes out Thursday."></textarea>
+  </div>
+</section>
+
+<!-- 3 -->
+<section>
+  <h2>3 · The offer</h2>
+  <p class="sect-note">What the customer actually gets.</p>
+
+  <div class="row">
+    <div class="field">
+      <label class="lbl" for="dType">Type of discount <span class="default-tag">default</span></label>
+      <select id="dType">
+        <option value="percent" selected>Percentage off the order</option>
+        <option value="fixed">Fixed dollar amount off the order</option>
+        <option value="shipping">Free shipping only</option>
+      </select>
+    </div>
+    <div class="field" id="valueWrap">
+      <label class="lbl" for="dValue">How much <span class="req-star">*</span></label>
+      <input type="number" id="dValue" min="1" step="1" placeholder="25">
+      <span class="hint" id="valueHint">A number only. 25 means 25% off.</span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="applyTo">What it applies to <span class="default-tag">default</span></label>
+    <select id="applyTo">
+      <option value="all" selected>Anything on the site</option>
+      <option value="specific">Only certain products</option>
+    </select>
+    <div class="consequence">Anything on the site is simplest and what almost every Kismet code does. Restricting to certain products means anyone who adds the wrong item sees the code fail at checkout, which generates support tickets.</div>
+  </div>
+
+  <div class="field hidden" id="productsWrap">
+    <label class="lbl" for="products">Which products <span class="req-star">*</span></label>
+    <input type="text" id="products" placeholder="e.g. 9lb Salmon &amp; Brown Rice only">
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="minSpend">Minimum spend to use it <span class="default-tag">default</span></label>
+    <select id="minSpend">
+      <option value="none" selected>No minimum</option>
+      <option value="amount">There is a minimum</option>
+    </select>
+  </div>
+
+  <div class="field hidden" id="minAmtWrap">
+    <label class="lbl" for="minAmt">Minimum order value ($) <span class="req-star">*</span></label>
+    <input type="number" id="minAmt" min="1" step="1" placeholder="50">
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="codeWanted">Code you want customers to type</label>
+    <span class="hint">Letters and numbers, no spaces. Short is better because people read it off a card or a screen. Write it here exactly as it will appear on every piece of artwork.</span>
+    <input type="text" id="codeWanted" placeholder="e.g. ITSKISMET25" style="text-transform:uppercase">
+    <div class="consequence"><strong>Get this exactly right.</strong> If the code on the artwork does not match the code in Shopify, every customer sees an error and nobody can fix it from a shop floor or a printed card. Check the spelling against anything already designed before you send this.</div>
+  </div>
+</section>
+
+<!-- 4 -->
+<section>
+  <h2>4 · Who can use it, and how often</h2>
+  <p class="sect-note">These four choices are where discounts usually go wrong. The notes under each say what it means in real money.</p>
+
+  <div class="field">
+    <label class="lbl" for="purchaseType">One-time orders, subscriptions, or both <span class="default-tag">default</span></label>
+    <select id="purchaseType">
+      <option value="both" selected>Both</option>
+      <option value="onetime">One-time orders only</option>
+      <option value="sub">Subscriptions only</option>
+    </select>
+    <div class="consequence" id="ptConsequence"></div>
+  </div>
+
+  <div class="field" id="subScopeWrap">
+    <label class="lbl" for="subScope">On a subscription, how many orders get the discount <span class="default-tag">default</span></label>
+    <select id="subScope">
+      <option value="first" selected>First order only</option>
+      <option value="first2">First two orders</option>
+      <option value="all">Every order, forever</option>
+    </select>
+    <div class="consequence" id="subConsequence"></div>
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="perPerson">How many times one person can use it <span class="default-tag">default</span></label>
+    <select id="perPerson">
+      <option value="one" selected>Once per person</option>
+      <option value="unlimited">As many times as they like</option>
+    </select>
+    <div class="consequence" id="ppConsequence"></div>
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="totalCap">Total number of redemptions allowed <span class="default-tag">default</span></label>
+    <select id="totalCap">
+      <option value="none" selected>No cap</option>
+      <option value="capped">Cap it</option>
+    </select>
+    <div class="consequence">A cap is a safety valve. If a public code reaches a coupon site it can run for weeks before anyone notices. A cap set generously above expected volume costs nothing and stops the worst case.</div>
+  </div>
+
+  <div class="field hidden" id="capNumWrap">
+    <label class="lbl" for="capNum">Stop after how many uses <span class="req-star">*</span></label>
+    <input type="number" id="capNum" min="1" step="1" placeholder="500">
+  </div>
+
+  <div class="field">
+    <label class="lbl" for="stacking">Can it be combined with other discount codes <span class="default-tag">default</span></label>
+    <select id="stacking">
+      <option value="no" selected>No, one code per order</option>
+      <option value="yes">Yes, it can stack</option>
+    </select>
+    <div class="consequence" id="stackConsequence"></div>
+  </div>
+</section>
+
+<!-- 5 -->
+<section>
+  <h2>5 · Where it is going</h2>
+  <p class="sect-note">This decides whether anything needs building alongside the code.</p>
+
+  <div class="field">
+    <label class="lbl">Where will this code appear</label>
+    <span class="hint">Tick everything that applies. Print and in-person matter most, because those cannot be corrected after the fact.</span>
+    <div class="checks">
+      <label><input type="checkbox" class="chan" value="In-person event"> In-person event</label>
+      <label><input type="checkbox" class="chan" value="Printed material"> Printed material</label>
+      <label><input type="checkbox" class="chan" value="Email"> Email</label>
+      <label><input type="checkbox" class="chan" value="SMS"> SMS</label>
+      <label><input type="checkbox" class="chan" value="Organic social"> Organic social</label>
+      <label><input type="checkbox" class="chan" value="Paid social"> Paid social</label>
+      <label><input type="checkbox" class="chan" value="Partner's own channels"> Partner's own channels</label>
+      <label><input type="checkbox" class="chan" value="Influencer or ambassador"> Influencer or ambassador</label>
+      <label><input type="checkbox" class="chan" value="Customer support"> Customer support</label>
+      <label><input type="checkbox" class="chan" value="Other"> Other</label>
+    </div>
+    <div class="warnbox hidden" id="printWarn"><strong>Printed or in-person.</strong> Send this form before anything goes to a printer. Once artwork is printed the code cannot change, and a mismatch between the artwork and Shopify means every customer sees an error on the day.</div>
+  </div>
+
+  <div class="field">
+    <label class="lbl">Do you also need any of these</label>
+    <div class="checks">
+      <label><input type="checkbox" class="extra" value="A shareable link that applies the code automatically"> Auto-apply link</label>
+      <label><input type="checkbox" class="extra" value="A QR code"> QR code</label>
+      <label><input type="checkbox" class="extra" value="A landing page"> Landing page</label>
+      <label><input type="checkbox" class="extra" value="Reporting on how the code performed"> Performance reporting</label>
+    </div>
+    <div class="consequence">An auto-apply link and a QR code take minutes. A landing page needs copy, imagery and sign-off, so flag it as early as you can.</div>
+  </div>
+</section>
+
+<!-- 6 -->
+<section>
+  <h2>6 · Anything else</h2>
+  <p class="sect-note">Anything that does not fit above. Partner requirements, wording they have asked for, things you are unsure about.</p>
+  <div class="field">
+    <label class="lbl" for="notes">Additional comments</label>
+    <textarea id="notes" placeholder="e.g. Parachute want their logo on the landing page. Also not sure whether we should mention free shipping at all."></textarea>
+  </div>
+</section>
+
+<!-- summary -->
+<section id="summary">
+  <h2>What you are asking for</h2>
+  <p class="sect-note">Updates as you fill the form in. Check it reads the way you meant before downloading.</p>
+  <div id="sumBody"></div>
+  <div id="impact"></div>
+</section>
+
+<div class="actions">
+  <button type="button" class="btn-primary" id="cp">Copy the request</button>
+  <button type="button" class="btn-ghost" id="em">Copy and open an email</button>
+  <button type="button" class="btn-ghost" id="dl">Download as a file</button>
+</div>
+<div id="status"></div>
+
+<footer class="foot">
+  Nothing on this page is sent anywhere on its own. It stays in your browser until you press one of the buttons above.<br>
+  Kismet discount code request · please use this form rather than a verbal ask, so nothing gets lost
+</footer>
+
+</form>
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  // ============================================================
+  //  EDIT THIS LINE: the address the "Email it to Ints" button uses
+  var SEND_TO = "Intshaquani@me.com";
+  // ============================================================
+
+  // ---- Kismet platform facts, checked in live checkout 15 Aug 2026 ----
+  var FREE_SHIP_THRESHOLD = 50;      // dollars, applied AFTER discount
+  var SHIP_COST = 5;                 // flat rate below threshold
+  var SUB_RECURRING = 40.49;         // 9lb bag recurring price
+  var SUB_FIRST = 31.49;             // 9lb bag first-order price before any code
+
+  var $ = function(id){ return document.getElementById(id); };
+  var money = function(n){ return "$" + n.toFixed(2); };
+
+  var els = ["reqName","reqTeam","approver","purpose","context","liveDate","endDate","urgentWhy",
+             "dType","dValue","applyTo","products","minSpend","minAmt","codeWanted",
+             "purchaseType","subScope","perPerson","totalCap","capNum","stacking","notes"];
+
+  // ---------- conditional fields ----------
+  function toggle(el, show){ el.classList[show ? "remove" : "add"]("hidden"); }
+
+  function workingDaysUntil(dateStr){
+    if(!dateStr) return null;
+    var target = new Date(dateStr + "T00:00:00");
+    var today = new Date();
+    today.setHours(0,0,0,0);
+    if(isNaN(target.getTime())) return null;
+    if(target <= today) return 0;
+    var days = 0;
+    var cur = new Date(today);
+    while(cur < target){
+      cur.setDate(cur.getDate() + 1);
+      var d = cur.getDay();
+      if(d !== 0 && d !== 6) days++;
+    }
+    return days;
+  }
+
+  function refresh(){
+    var dType = $("dValue") ? $("dType").value : "percent";
+    var val = parseFloat($("dValue").value);
+    var pct = (dType === "percent" && !isNaN(val)) ? val : null;
+
+    // value field label
+    toggle($("valueWrap"), dType !== "shipping");
+    $("valueHint").textContent = dType === "percent"
+      ? "A number only. 25 means 25% off."
+      : "A number only. 10 means $10 off the order.";
+    $("dValue").placeholder = dType === "percent" ? "25" : "10";
+
+    toggle($("productsWrap"), $("applyTo").value === "specific");
+    toggle($("minAmtWrap"), $("minSpend").value === "amount");
+    toggle($("capNumWrap"), $("totalCap").value === "capped");
+    toggle($("subScopeWrap"), $("purchaseType").value !== "onetime");
+
+    // lead time
+    var wd = workingDaysUntil($("liveDate").value);
+    if(wd !== null && wd < 5){
+      $("leadWarn").innerHTML = "<strong>That is " + wd + " working day" + (wd === 1 ? "" : "s") +
+        " away.</strong> Under five there may not be time to test the code properly, build a landing page, or catch a problem before customers meet it. The request can still go in, just say below what is driving the date.";
+      toggle($("leadWarn"), true);
+      toggle($("urgentWrap"), true);
+    } else {
+      toggle($("leadWarn"), false);
+      toggle($("urgentWrap"), false);
+    }
+
+    // print warning
+    var chans = [].slice.call(document.querySelectorAll(".chan:checked")).map(function(c){return c.value;});
+    toggle($("printWarn"), chans.indexOf("Printed material") > -1 || chans.indexOf("In-person event") > -1);
+
+    // ---- consequence lines ----
+    var pt = $("purchaseType").value;
+    var ptTxt;
+    if(pt === "both"){
+      ptTxt = "<strong>Both</strong> is right for almost every campaign. Most Kismet traffic chooses subscribe and save, so a code that excludes subscriptions fails for the majority of people who try it.";
+    } else if(pt === "onetime"){
+      ptTxt = "<strong>One-time only</strong> means the code will not work for anyone who selects subscribe and save. That is most of our traffic, and they see an error rather than an explanation. Choose this only if you specifically do not want the discount reaching subscribers.";
+    } else {
+      ptTxt = "<strong>Subscriptions only</strong> means anyone buying a single bag cannot use the code at all.";
+    }
+    $("ptConsequence").innerHTML = ptTxt;
+
+    // subscription stacking maths
+    var subTxt;
+    if(pt === "onetime"){
+      subTxt = "";
+    } else if(pct !== null && dType === "percent"){
+      var first = SUB_FIRST * (1 - pct/100);
+      var effective = (1 - first / SUB_RECURRING) * 100;
+      subTxt = "<strong>Read this one.</strong> A subscription already discounts the first order on its own, and that is not a code, so it cannot be switched off. A 9lb bag that recurs at " + money(SUB_RECURRING) +
+        " already comes in at " + money(SUB_FIRST) + " on the first order. Your " + pct + "% comes off that, so the customer pays <strong>" + money(first) +
+        "</strong>. That is <strong>" + effective.toFixed(0) + "% off</strong> the normal price, not " + pct + "%.";
+      if($("subScope").value === "all"){
+        subTxt += " Choosing every order means that discount continues on every renewal for as long as they stay subscribed.";
+      } else if($("subScope").value === "first2"){
+        subTxt += " Their second order would be " + money(SUB_RECURRING * (1 - pct/100)) + ".";
+      }
+    } else {
+      subTxt = "A subscription already discounts the first order on its own, and that is not a code, so it cannot be switched off. Whatever you put here comes off on top of it. Enter a percentage above and this will show you the real number.";
+    }
+    $("subConsequence").innerHTML = subTxt;
+
+    // per person
+    $("ppConsequence").innerHTML = $("perPerson").value === "one"
+      ? "<strong>Once per person</strong> is the safer default and fits most campaigns. Pick the other option only if you actively want people to reuse it, for example a partner code you are happy for their whole team to use repeatedly."
+      : "<strong>Unlimited</strong> means one person can use this over and over until it expires. Fine for a trusted partner audience. Riskier on anything public, because a code that reaches a coupon site can run for weeks. If you choose this, consider capping the total below.";
+
+    // stacking
+    $("stackConsequence").innerHTML = $("stacking").value === "no"
+      ? "<strong>One code per order</strong> is the default and is what you want in most cases. Worth knowing it only blocks other <em>codes</em>. It cannot block the discount built into a subscription, which is why the number above is bigger than you asked for."
+      : "<strong>Stacking allowed</strong> means this can be combined with other live codes and automatic offers. Two 25% codes together is a 44% order. Only choose this if someone has worked out the floor.";
+
+    // ---- impact panel ----
+    var imp = "";
+    if(dType === "percent" && pct !== null && pct > 0 && pct < 100){
+      var bandTop = FREE_SHIP_THRESHOLD / (1 - pct/100);
+      imp += '<div class="warnbox" style="margin-top:18px"><strong>Free shipping.</strong> Kismet ships free over ' +
+        money(FREE_SHIP_THRESHOLD) + ', and that test is applied <em>after</em> the discount comes off. With ' + pct +
+        '% off, any basket between <strong>' + money(FREE_SHIP_THRESHOLD) + ' and ' + money(Math.floor(bandTop*100)/100) +
+        '</strong> loses free shipping by using this code and picks up a ' + money(SHIP_COST) +
+        ' charge. Customers still come out ahead overall, but it is a surprise at checkout. The fix is to say so wherever the code appears: spend ' +
+        money(Math.ceil(bandTop*100)/100) + ' or more and shipping stays free.</div>';
+    }
+    $("impact").innerHTML = imp;
+
+    buildSummary();
+  }
+
+  // ---------- summary ----------
+  function row(k,v){
+    if(!v) return "";
+    return '<div class="sum-row"><span class="sum-k">' + k + '</span><span class="sum-v">' + v + '</span></div>';
+  }
+  function offerLine(){
+    var t = $("dType").value, v = $("dValue").value;
+    if(t === "shipping") return "Free shipping";
+    if(!v) return "";
+    return t === "percent" ? v + "% off the order" : "$" + v + " off the order";
+  }
+  function niceDate(s){
+    if(!s) return "";
+    var d = new Date(s + "T00:00:00");
+    if(isNaN(d.getTime())) return s;
+    return d.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"});
+  }
+  function usesLine(){
+    var pp = $("perPerson").value === "one" ? "Once per person" : "Unlimited per person";
+    if($("totalCap").value === "capped" && $("capNum").value) pp += ", capped at " + $("capNum").value + " total";
+    return pp;
+  }
+  function subLine(){
+    if($("purchaseType").value === "onetime") return "";
+    return {first:"First order only", first2:"First two orders", all:"Every order"}[$("subScope").value];
+  }
+  function ptLine(){
+    return {both:"One-time and subscription", onetime:"One-time orders only", sub:"Subscriptions only"}[$("purchaseType").value];
+  }
+  function buildSummary(){
+    var h = "";
+    h += row("Code", $("codeWanted").value.toUpperCase());
+    h += row("Offer", offerLine());
+    h += row("Applies to", $("applyTo").value === "all" ? "Anything on the site" : ($("products").value || "Selected products"));
+    h += row("Minimum spend", $("minSpend").value === "none" ? "None" : ($("minAmt").value ? "$" + $("minAmt").value : ""));
+    h += row("Order types", ptLine());
+    h += row("On subscriptions", subLine());
+    h += row("Uses", usesLine());
+    h += row("Stacking", $("stacking").value === "no" ? "One code per order" : "Can stack with other codes");
+    h += row("Live from", niceDate($("liveDate").value));
+    h += row("Ends", niceDate($("endDate").value) || ($("endDate").value ? "" : "No end date set"));
+    h += row("For", $("purpose").value);
+    h += row("Requested by", $("reqName").value);
+    h += row("Approved by", $("approver").value);
+    $("sumBody").innerHTML = h || '<p class="sect-note" style="margin:0">Nothing filled in yet.</p>';
+  }
+
+  // ---------- validation ----------
+  function required(){
+    var r = [["reqName","Your name"],["reqTeam","Your team"],["approver","Who approved this"],
+             ["purpose","Campaign, partner or event"],["liveDate","Needs to be live by"]];
+    if($("dType").value !== "shipping") r.push(["dValue","How much"]);
+    if($("applyTo").value === "specific") r.push(["products","Which products"]);
+    if($("minSpend").value === "amount") r.push(["minAmt","Minimum order value"]);
+    if($("totalCap").value === "capped") r.push(["capNum","Stop after how many uses"]);
+    if(!$("urgentWrap").classList.contains("hidden")) r.push(["urgentWhy","Why is it urgent"]);
+    return r;
+  }
+  function validate(){
+    var missing = [];
+    els.forEach(function(id){ var e = $(id); if(e) e.classList.remove("invalid"); });
+    required().forEach(function(p){
+      var e = $(p[0]);
+      if(!e || !String(e.value).trim()){
+        missing.push(p[1]);
+        if(e) e.classList.add("invalid");
+      }
+    });
+    return missing;
+  }
+
+  // ---------- markdown ----------
+  function line(k,v){ return v ? "| " + k + " | " + v + " |\n" : ""; }
+  function buildMarkdown(){
+    var t = $("dType").value, pct = parseFloat($("dValue").value);
+    var now = new Date();
+    var stamp = now.toISOString().slice(0,10);
+
+    var md = "# Discount code request\n\n";
+    md += "**" + ($("purpose").value || "Untitled request") + "**\n\n";
+    md += "Submitted " + now.toLocaleDateString("en-GB",{day:"numeric",month:"long",year:"numeric"}) +
+          " by " + ($("reqName").value || "unknown") + " (" + ($("reqTeam").value || "team not given") + ")\n\n";
+    md += "---\n\n## Build this\n\n| Setting | Value |\n|---|---|\n";
+    md += line("Code", $("codeWanted").value.toUpperCase() || "_no preference, please choose_");
+    md += line("Discount", offerLine());
+    md += line("Applies to", $("applyTo").value === "all" ? "Entire order, all products" : $("products").value);
+    md += line("Minimum spend", $("minSpend").value === "none" ? "None" : "$" + $("minAmt").value);
+    md += line("Purchase type", ptLine());
+    md += line("Subscription scope", subLine());
+    md += line("Uses per customer", $("perPerson").value === "one" ? "One per customer" : "Unlimited");
+    md += line("Total redemption cap", $("totalCap").value === "capped" ? $("capNum").value : "No cap");
+    md += line("Combines with other codes", $("stacking").value === "no" ? "No" : "Yes");
+    md += line("Live from", niceDate($("liveDate").value));
+    md += line("Ends", niceDate($("endDate").value) || "No end date requested");
+    md += "\n";
+
+    md += "## Who asked\n\n| | |\n|---|---|\n";
+    md += line("Requested by", $("reqName").value);
+    md += line("Team", $("reqTeam").value);
+    md += line("Approved by", $("approver").value);
+    var wd = workingDaysUntil($("liveDate").value);
+    if(wd !== null) md += line("Working days' notice", String(wd));
+    md += "\n";
+
+    if($("context").value.trim()){
+      md += "## Audience and context\n\n" + $("context").value.trim() + "\n\n";
+    }
+    if($("urgentWhy").value.trim() && !$("urgentWrap").classList.contains("hidden")){
+      md += "## Why it is urgent\n\n" + $("urgentWhy").value.trim() + "\n\n";
+    }
+
+    var chans = [].slice.call(document.querySelectorAll(".chan:checked")).map(function(c){return c.value;});
+    var extras = [].slice.call(document.querySelectorAll(".extra:checked")).map(function(c){return c.value;});
+    if(chans.length){
+      md += "## Where the code will appear\n\n";
+      chans.forEach(function(c){ md += "- " + c + "\n"; });
+      md += "\n";
+      if(chans.indexOf("Printed material") > -1 || chans.indexOf("In-person event") > -1){
+        md += "> Print or in-person. The code cannot be changed once artwork is produced. Confirm the exact spelling before anything goes to a printer or to the partner.\n\n";
+      }
+    }
+    if(extras.length){
+      md += "## Also needed\n\n";
+      extras.forEach(function(c){ md += "- " + c + "\n"; });
+      md += "\n";
+    }
+
+    // Known effects, auto-generated
+    var eff = "";
+    if(t === "percent" && !isNaN(pct) && pct > 0 && pct < 100){
+      if($("purchaseType").value !== "onetime"){
+        var first = SUB_FIRST * (1 - pct/100);
+        var effective = (1 - first / SUB_RECURRING) * 100;
+        eff += "- **Subscribers get " + effective.toFixed(0) + "% off, not " + pct + "%.** A subscription discounts its own first order and that is not a code, so no setting blocks it. A 9lb bag recurring at " +
+          money(SUB_RECURRING) + " starts at " + money(SUB_FIRST) + ", and " + pct + "% off that is " + money(first) + ".\n";
+      }
+      var bandTop = FREE_SHIP_THRESHOLD / (1 - pct/100);
+      eff += "- **Baskets between " + money(FREE_SHIP_THRESHOLD) + " and " + money(Math.floor(bandTop*100)/100) +
+        " lose free shipping.** The " + money(FREE_SHIP_THRESHOLD) + " threshold is tested after the discount comes off, so those orders pick up a " +
+        money(SHIP_COST) + " charge. State \"" + money(Math.ceil(bandTop*100)/100) + " or more ships free\" wherever the code appears.\n";
+    }
+    if($("perPerson").value === "unlimited" && $("totalCap").value === "none"){
+      eff += "- **Uncapped and unlimited.** One person can use this repeatedly, with no total ceiling. Watch the Used column weekly in case it reaches a coupon aggregator.\n";
+    }
+    if($("stacking").value === "yes"){
+      eff += "- **Stacking is on.** This can combine with other live codes and automatic offers. Confirm the discount floor before it goes out.\n";
+    }
+    if(eff){
+      md += "## Known effects, calculated automatically\n\nThese follow from the settings above and are not opinions. Read them before sending.\n\n" + eff + "\n";
+    }
+
+    if($("notes").value.trim()){
+      md += "## Additional comments\n\n" + $("notes").value.trim() + "\n\n";
+    }
+
+    md += "---\n\n_Generated from the Kismet discount code request form._\n";
+    return md;
+  }
+
+  function fileName(){
+    var slug = ($("purpose").value || "discount-request")
+      .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,45);
+    return "Discount-Request-" + slug + "-" + new Date().toISOString().slice(0,10) + ".md";
+  }
+
+  function setStatus(msg, cls){
+    var s = $("status");
+    s.textContent = msg;
+    s.className = cls || "";
+  }
+
+  // ---------- actions ----------
+  $("em").addEventListener("click", function(){
+    var missing = validate();
+    if(missing.length){
+      setStatus("Still needed: " + missing.join(", ") + ".", "err");
+      var f = document.querySelector(".invalid");
+      if(f) f.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    // Mail clients cap how much can be prefilled into a mailto link, and a full
+    // request is well past it. So: copy the request, then open an addressed email
+    // for the requester to paste into.
+    var subject = "Discount code request: " + ($("purpose").value || "untitled");
+    var url = "mailto:" + encodeURIComponent(SEND_TO) + "?subject=" + encodeURIComponent(subject);
+    copyText(buildMarkdown(), function(ok){
+      window.location.href = url;
+      setStatus(ok
+        ? "Request copied and your email is opening. Paste it into the body and send."
+        : "Your email is opening, but the request would not copy. Use Download as a file and attach it instead.",
+        ok ? "ok" : "err");
+    });
+  });
+
+  $("dl").addEventListener("click", function(){
+    var missing = validate();
+    if(missing.length){
+      setStatus("Still needed: " + missing.join(", ") + ".", "err");
+      var first = document.querySelector(".invalid");
+      if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    var blob = new Blob([buildMarkdown()], {type:"text/markdown;charset=utf-8"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = fileName();
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    setTimeout(function(){ URL.revokeObjectURL(url); }, 1500);
+    setStatus("Downloaded " + fileName() + ". Send it over and you are done.", "ok");
+  });
+
+  $("cp").addEventListener("click", function(){
+    var missing = validate();
+    if(missing.length){
+      setStatus("Still needed: " + missing.join(", ") + ".", "err");
+      var first = document.querySelector(".invalid");
+      if(first) first.scrollIntoView({behavior:"smooth", block:"center"});
+      return;
+    }
+    copyText(buildMarkdown(), function(ok){
+      setStatus(ok ? "Copied. Paste it into Slack or an email to Ints and you are done."
+                   : "Could not copy. Use Download as a file instead.", ok ? "ok" : "err");
+    });
+  });
+
+  function copyText(text, done){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(function(){ done(true); },
+                                              function(){ done(fallbackCopy(text)); });
+    } else { done(fallbackCopy(text)); }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    var ok = false;
+    try { ok = document.execCommand("copy"); } catch(e){ ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
+  // ---------- wiring ----------
+  document.addEventListener("input", refresh);
+  document.addEventListener("change", refresh);
+  $("f").addEventListener("submit", function(e){ e.preventDefault(); });
+
+  refresh();
+})();
+</script>
+</body>
+</html>
