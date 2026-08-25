@@ -173,6 +173,40 @@
     <input type="text" id="f_title" placeholder="e.g. Server-render Yotpo aggregateRating into Product JSON-LD">
   </div>
 
+  <div class="field">
+    <label for="f_oneline">In one line, what are we asking for</label>
+    <span class="help">The first sentence Monoku reads. Plain language, no background, no history. This is the line that tells them in five seconds what this is.</span>
+    <input type="text" id="f_oneline" placeholder="e.g. Put our review stars into the product page's structured data so Google can show them">
+  </div>
+
+  <div class="grid2">
+    <div class="field">
+      <label for="f_type">Type of work</label>
+      <span class="help">So it can be routed and sized without reading the whole ticket. Investigate means we do not know the answer yet and are asking them to find it.</span>
+      <select id="f_type">
+        <option selected>Build</option>
+        <option>Investigate</option>
+        <option>Fix</option>
+        <option>Decision needed</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="f_goalline">The goal, in one line</label>
+      <span class="help">What changes for the business or the customer if this works. The longer version still goes in Strategic goal further down.</span>
+      <input type="text" id="f_goalline" placeholder="e.g. Star ratings visible in search results so more people click through">
+    </div>
+  </div>
+
+  <div class="field criteria">
+    <label>Monoku needs to</label>
+    <span class="help">Two to four bullets, each starting with a verb. The short do-list that sits at the very top of the ticket. All the detail still lives further down; this is the version someone can read on their phone.</span>
+    <div id="mdo">
+      <div class="crow"><span>1</span><input type="text" placeholder="e.g. Add aggregateRating to the Product JSON-LD"></div>
+      <div class="crow"><span>2</span><input type="text" placeholder="e.g. Confirm the values match what Yotpo shows on the page"></div>
+    </div>
+    <button class="addrow" type="button" onclick="addDo()">+ Add line</button>
+  </div>
+
   <div class="grid2">
     <div class="field">
       <label for="f_theme">Theme</label>
@@ -658,6 +692,12 @@ function addCrit(){
   r.innerHTML='<span>'+n+'</span><input type="text">';
   w.appendChild(r); r.querySelector('input').focus();
 }
+function addDo(){
+  var w=document.getElementById('mdo'), n=w.children.length+1;
+  var r=document.createElement('div'); r.className='crow';
+  r.innerHTML='<span>'+n+'</span><input type="text">';
+  w.appendChild(r); r.querySelector('input').focus();
+}
 function addRow(id,cols){
   var tb=document.getElementById(id), tr=document.createElement('tr'), h='';
   for(var i=0;i<cols;i++) h+='<td><input type="text"></td>';
@@ -684,6 +724,31 @@ function mdTable(headers, data){
 
 function compose(){
   var L=[], add=function(s){L.push(s)};
+
+  var _dos=[].map.call(document.querySelectorAll('#mdo input'),function(i){return i.value.trim()}).filter(Boolean);
+  var _blk=rows('tb_give').filter(function(r){return r[3]}).map(function(r){return r[0]+(r[2]?' by '+r[2]:'')});
+  if(v('f_oneline')||v('f_goalline')||_dos.length){
+    add('## At a glance');
+    add('');
+    var _ag=[];
+    if(v('f_oneline'))  _ag.push("**What we're asking for:** "+v('f_oneline'));
+    if(v('f_type'))     _ag.push('**Type:** '+v('f_type'));
+    if(v('f_goalline')) _ag.push('**Goal:** '+v('f_goalline'));
+    if(_ag.length) add(_ag.join('  \n'));
+    if(_dos.length){
+      add('');
+      add('**Monoku needs to:**');
+      _dos.forEach(function(d){ add('- '+d); });
+    }
+    if(_blk.length){
+      add('');
+      add('**Blocked until Kismet delivers:** '+_blk.join('; '));
+    }
+    add('');
+    add('---');
+    add('');
+  }
+
   var hdr=[];
   if(v('f_theme'))    hdr.push('**Theme:** '+v('f_theme'));
   if(v('f_pillar'))   hdr.push('**Pillar:** '+v('f_pillar'));
