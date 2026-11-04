@@ -74,8 +74,9 @@ footer{padding:18px 28px;color:var(--sable);font-size:12px;border-top:1px solid 
 <main>
 
 <section id="overview" class="on">
-<h2>Last 30 days</h2>
-<p class="lede">What the programme produced between 5 October and 4 November, against the 30 days before. Dog Food Advisor is an affiliate, not an ambassador, and is in these totals.</p>
+<div class="filters" style="margin-bottom:4px"><h2 style="margin:0 12px 0 0" id="perTitle">Since the programme began</h2>
+<select id="period"><option value="all">Since the programme began (Oct 2024)</option><option value="ytd">This year</option><option value="d30">Last 30 days</option></select></div>
+<p class="lede" id="perLede"></p>
 <div class="tiles" id="tiles30"></div>
 <div class="grid2">
 <div class="card"><h3>Who is in the programme</h3><div class="tiles" id="tilesRoster" style="margin:0"></div>
@@ -146,8 +147,16 @@ $('#asof').textContent='4 November 2026';
 document.querySelectorAll('nav button').forEach(b=>b.onclick=()=>{document.querySelectorAll('nav button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('section').forEach(s=>s.classList.toggle('on',s.id===b.dataset.t));});
 // tiles
 const L=DATA.last30,S=DATA.summary;
-const t=[['Revenue',usd(L.revenue),'+105% on prior 30 days','up'],['Conversions',L.conversions,'+74%','up'],['Order value',usd(L.aov),'+18%','up'],['Commissions owed',usd(L.commissions),'+3%',''],['Paid out',usd(L.payouts),'-66%','down'],['Refunded',usd(L.refunded),'up from $25','down'],['Mentions',L.mentions,'flat',''],['Views',fmt(L.views),'+16%','up'],['Engagements',fmt(L.engagements),'+86%','up'],['EMV',usd(L.emv),'+11%','up'],['Active creators',L.activeCreators,'+2',''],['Link clicks',L.clicks,'+30%','up'],['New enrolments',L.newEnrol,'19 the month before','down']];
-$('#tiles30').innerHTML=t.map(x=>`<div class="tile"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="d ${x[3]}">${x[2]}</div></div>`).join('');
+const P={
+ all:{title:'Since the programme began',lede:'Everything Superfiliate has recorded from October 2024 to 4 November 2026. Almost all of the sales are from this year: $375 came in before January.',
+  t:[['Revenue','$10,109','164 orders'],['Order value','$62',''],['Refunded','$592',''],['Commissions earned','$1,918',''],['Paid out','$1,970',''],['Creators enrolled','340',''],['Mentions','3,497','posts that tagged or named us'],['Views','47.7M',''],['Reach','35.8M',''],['Engagements','732K',''],['EMV','$603,301','estimated media value'],['Active creators','225','posted at least once'],['Link clicks','2,485','']]},
+ ytd:{title:'This year',lede:'1 January to 4 November 2026. These totals match the Leaderboard tab to the cent.',
+  t:[['Revenue','$9,734','158 orders'],['Order value','$62',''],['Refunded','$592',''],['Commissions earned','$1,890',''],['Paid out','$1,970',''],['Creators enrolled','162',''],['Mentions','2,214',''],['Views','20.6M',''],['Reach','15.4M',''],['Engagements','344K',''],['EMV','$279,938',''],['Active creators','172',''],['Link clicks','1,980','']]},
+ d30:{title:'Last 30 days',lede:'5 October to 4 November 2026, against the 30 days before. The quickest read on whether the programme is speeding up or slowing down.',
+  t:[['Revenue',usd(L.revenue),'+105% on prior 30 days','up'],['Conversions',L.conversions,'+74%','up'],['Order value',usd(L.aov),'+18%','up'],['Commissions owed',usd(L.commissions),'+3%',''],['Paid out',usd(L.payouts),'-66%','down'],['Refunded',usd(L.refunded),'up from $25','down'],['Mentions',L.mentions,'flat',''],['Views',fmt(L.views),'+16%','up'],['Engagements',fmt(L.engagements),'+86%','up'],['EMV',usd(L.emv),'+11%','up'],['Active creators',L.activeCreators,'+2',''],['Link clicks',L.clicks,'+30%','up'],['New enrolments',L.newEnrol,'19 the month before','down']]}};
+function renderPeriod(){const p=P[$('#period').value];$('#perTitle').textContent=p.title;$('#perLede').textContent=p.lede+' Dog Food Advisor is an affiliate, not an ambassador, and is in these totals.';
+$('#tiles30').innerHTML=p.t.map(x=>`<div class="tile"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="d ${x[3]||''}">${x[2]||''}</div></div>`).join('');}
+$('#period').addEventListener('input',renderPeriod);renderPeriod();
 const r=[['Contacts',S.total,'all programmes'],['Ambassadors',S.ambassadors,`${S.engaged} engaged, ${S.enrolledOnly} enrolled only`],['Gifting only',S.byProgram['Gifting'],'seeded, no code'],['Sold this year',S.withRevenue,usd(S.ytdRevenue)+' from '+S.ytdConv+' orders'],['Approved for Meta ads',S.metaApproved,'can run as partnership ads'],['Seeded since 20 May',usd(S.giftValue),S.giftOrders+' gift orders at list price'],['Dog accounts',S.kindDog,S.kindLife+' lifestyle, by tag or handle']];
 $('#tilesRoster').innerHTML=r.map(x=>`<div class="tile"><div class="v">${x[1]}</div><div class="l">${x[0]}</div><div class="d">${x[2]}</div></div>`).join('');
 // enrol bars
